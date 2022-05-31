@@ -7,6 +7,7 @@ class Order < ApplicationRecord
     ActiveRecord::Base.transaction do
       line_foods.each do |line_food|
         line_food.update!(active: false, order: self)
+      #=line_food.update!(active: false, order_id: self.id)
       end
       self.save!
     end
